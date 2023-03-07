@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "eslintConfig": {
+    "rules": {
+      "jsx-a11y/accessible-emoji": "off"
+    }
+  }
 }
