@@ -10,22 +10,21 @@ const ThankYouForm = () => {
     <>
       <Header />
       <Container
-        maxW={"600px"}
-        mt={"170px"}
-        border={"1px"}
-        padding={"15px"}
-        borderRadius={"20px"}
-        bgColor={"purple.100"}
-        mb={"250px"}
-      >
-        <Text textAlign={"center"} fontWeight={"bold"} mb={"15px"}>
+        maxW="600px"
+        mt="170px"
+        boxShadow="xl"
+        padding="15px"
+        borderRadius="20px"
+        bg="white"
+        mb="250px">
+        <Text textAlign="center" fontWeight="bold" mb="15px">
           Thank you for purchasing golden package 💕💖
           <br />
-          Receipt and details has been sent to their email 📧{" "}
+          Receipt and details has been sent to their email 📧
         </Text>
         <Center>
           <motion.div whileTap={{ scale: 0.9 }}>
-            <RouterButton href={"/"} colorScheme={"purple"}>
+            <RouterButton href="/" colorScheme="purple">
               Welcome
             </RouterButton>
           </motion.div>

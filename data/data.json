@@ -1,0 +1,59 @@
+{
+  "teacherInformation": [
+    {
+      "id": 0,
+      "name": "Ahmad Maslan",
+      "university": "oxford",
+      "profilePicture": "assets/profile picture teacher 1.webp",
+      "dayAvailable": "Monday",
+      "timeAvailable": {
+        "start": "1pm",
+        "end": "2pm"
+      }
+    },
+    {
+      "id": 1,
+      "name": "Shima",
+      "university": "Malaya",
+      "profilePicture": "assets/profile picture teacher 2.webp",
+      "dayAvailable": "Friday",
+      "timeAvailable": {
+        "start": "4pm",
+        "end": "5pm"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Mardiah",
+      "university": "Putra Malaysia",
+      "profilePicture": "assets/profile picture teacher 3.webp",
+      "dayAvailable": "Tuesday",
+      "timeAvailable": {
+        "start": "8am",
+        "end": "9am"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Fatin Nur Liyana",
+      "university": "Teknologi Petronas",
+      "profilePicture": "assets/profile picture teacher 4.webp",
+      "dayAvailable": "Wednesday",
+      "timeAvailable": {
+        "start": "10am",
+        "end": "11am"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Siti Nur Aisyah",
+      "university": "Kebangsaan Malaysia",
+      "profilePicture": "assets/profile picture teacher 5.webp",
+      "dayAvailable": "Friday",
+      "timeAvailable": {
+        "start": "2pm",
+        "end": "3pm"
+      }
+    }
+  ]
+}
