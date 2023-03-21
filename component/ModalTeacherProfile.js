@@ -1,34 +1,31 @@
 import React from "react";
-import { Avatar, Flex, Text, VStack } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
 
 const ModalTeacherProfile = (props) => {
   return (
     <>
-      <VStack>
-        <Avatar src={props.profilePicture} size="lg" />
+      <Flex justifyContent="center" alignItems="center" gap="60px">
+        <Avatar src={props.profilePicture} size="xl" />
 
-        <Flex>
-          <Text>Tutor :</Text>
-          <Text>{props.name}</Text>
+        <Flex gap="8px">
+          <Box fontWeight="bold">
+            <Text>Class</Text>
+            <Text>Tutor</Text>
+            <Text>Date</Text>
+            <Text>Time</Text>
+            <Text>Child</Text>
+          </Box>
+          <Box>
+            <Text>Math class</Text>
+            <Text>{props.name}</Text>
+            <Text>{props.dayAvailable}</Text>
+            <Text>
+              {props.timeStart} - {props.timeEnd}
+            </Text>
+            <Text>{props.pickedChildren}</Text>
+          </Box>
         </Flex>
-
-        <Flex>
-          <Text>Date :</Text>
-          <Text>{props.dayAvailable}</Text>
-        </Flex>
-
-        <Flex>
-          <Text>Time :</Text>
-          <Text>
-            {props.timeStart} - {props.timeEnd}
-          </Text>
-        </Flex>
-
-        <Flex>
-          <Text>Child :</Text>
-          <Text>{props.pickedChildren}</Text>
-        </Flex>
-      </VStack>
+      </Flex>
     </>
   );
 };

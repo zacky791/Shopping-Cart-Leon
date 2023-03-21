@@ -9,14 +9,7 @@ const ThankYouForm = () => {
   return (
     <>
       <Header />
-      <Container
-        maxW="600px"
-        mt="170px"
-        boxShadow="xl"
-        padding="15px"
-        borderRadius="20px"
-        bg="white"
-        mb="250px">
+      <Container maxW="600px" mt="170px" boxShadow="xl" padding="15px" borderRadius="20px" bg="white" mb="250px">
         <Text textAlign="center" fontWeight="bold" mb="15px">
           Thank you for purchasing golden package 💕💖
           <br />
