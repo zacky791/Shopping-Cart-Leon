@@ -47,15 +47,17 @@ export default function Product() {
               <Text>4 classes available 🏫</Text>
             </Flex>
 
-            <RouterButton colorScheme="purple" color="white" href="/enrollClass" display="flex" gap="10px">
-              <AiFillStar fontSize="20px" /> Go to classroom available
+            <RouterButton colorScheme="purple" color="white" href="/enroll-class" display="flex" gap="10px">
+              <AiFillStar fontSize="20px" /> Go To Classroom Available
             </RouterButton>
 
-            <Text fontSize="12px">We offer a generous refund policy</Text>
+            <Text fontSize="12px" color="808da1">
+              We offer a generous refund policy
+            </Text>
           </Flex>
         </HStack>
         <Box boxSize="sm">
-          <Image src="/assets/Tutor.webp" borderRadius="20px" />
+          <Image src="/assets/Tutor.webp" borderRadius="20px" boxShadow="lg" />
         </Box>
       </Container>
 
@@ -70,7 +72,7 @@ export default function Product() {
         gap="110px"
       >
         <Box w="380px">
-          <Heading fontSize="20px" mb="10px">
+          <Heading fontSize="20px" mb="10p  x">
             What you will learn
           </Heading>
           <Box>

@@ -4,7 +4,7 @@ import Logo from "./ui/Logo";
 
 function Footer() {
   return (
-    <Box bg="#7e43c7" color="white" mt="145px">
+    <Box bg="#7e43c7" color="white" mt="50px">
       <Container as={Stack} maxW="6xl" py="50px">
         <SimpleGrid templateColumns={{ base: "1fr 1fr 1fr 1fr 1fr ", md: "2fr 1fr 1fr 1fr 1fr" }} spacing={8}>
           <VStack spacing="6px" display={{ base: "none", md: "inline-block" }} mx="auto">
