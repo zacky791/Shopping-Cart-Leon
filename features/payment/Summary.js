@@ -1,13 +1,14 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import React from "react";
+import { useFormContext } from "react-hook-form";
 
-const Summary = ({ activePayment, ready }) => {
+export const Summary = ({ activePayment, ready, methods }) => {
   //for handling submit outside form
   const handleButtonClick = () => {
     if (activePayment === 1) {
-      handleSubmit(onSubmit);
-      isValid ? router.push("/thank-you-form") : null;
+      methods.handleSubmit(methods.onSubmit);
+      methods.formState.isValid ? router.push("/thank-you-form") : null;
     } else if (activePayment === 2) {
       router.push("https://www.paypal.com/checkoutnow?token=7FJ482267V245434S");
     } else if (activePayment === 3) {
@@ -15,6 +16,19 @@ const Summary = ({ activePayment, ready }) => {
         "https://weblogin.grab.com/auth?acr_values=consent_ctx%3AcountryCode%3DMY%2Ccurrency%3DMYR&auth_endpoint=https%3A%2F%2Fpartner-api.grab.com%2Fgrabid%2Fv1%2Foauth2%2Fauthorize&browser=IE%3A110.0&client_id=c5b4aff021f14b7399a86d6aa5f398c3&code_challenge=qT20ZaqYINkaUWvRAI3TnQFYU6CvZJ6OYyLdWK69YcE&code_challenge_method=S256&ctx_id=a51c1415bcd5438fa089856fff2ded4c&device_type=Computer&forwardedHost=partner-api.grab.com&gw=pgw&redirect_uri=https%3A%2F%2Fcheckoutshopper-live.adyen.com%2Fcheckoutshopper%2FcheckoutPaymentReturn%3Fgpid%3DGPD959D94D622CD38C&request=eyJhbGciOiAibm9uZSJ9.eyJjbGFpbXMiOnsidHJhbnNhY3Rpb24iOnsidHhJRCI6IjMyZTRkYWQ5YmU0ZDRiNmFhYmQyN2ZmMGZhNmRhMTBiIn19fQ.&request_id=37faa499-2f0e-48e1-bf5f-f09af64b0476&response_type=code&scope=payment.one_time_charge&state=50854479"
       );
     }
+  };
+
+  const onSubmit = (data) => console.log(data);
+
+  const {
+    handleSubmit,
+    formState: { isValid },
+  } = useFormContext();
+
+  const handleButtonClick2 = () => {
+    handleSubmit(onSubmit)();
+    console.log(isValid);
+    // methods.formState.isValid ? router.push("/thank-you-form") : null;
   };
 
   //for router
@@ -41,13 +55,14 @@ const Summary = ({ activePayment, ready }) => {
               <Text>RM 199</Text>
             </Flex>
           </Box>
-          <Button type="submit" disabled={ready} onClick={handleButtonClick} colorScheme="green" mt="15px" ml="70px">
+          <Button type="submit" disabled={ready} onClick={handleButtonClick2} colorScheme="green" mt="15px" ml="70px">
             Complete Checkout
           </Button>
+          {/* <Button type="submit" onClick={handleButtonClick2}>
+            Test123
+          </Button> */}
         </Box>
       </Box>
     </>
   );
 };
-
-export default Summary;

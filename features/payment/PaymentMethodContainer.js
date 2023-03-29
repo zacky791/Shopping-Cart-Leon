@@ -15,9 +15,9 @@ import { BiWorld } from "react-icons/bi";
 import { BsFillCreditCardFill } from "react-icons/bs";
 import { FaCcPaypal } from "react-icons/fa";
 import { SiGrab } from "react-icons/si";
-import RouterButton from "./ui/RouterButton";
+import { RouterButton } from "../../component/ui";
 
-const PaymentMethodContainer = ({ setActivePayment, children }) => {
+export const PaymentMethodContainer = ({ setActivePayment, children }) => {
   return (
     <>
       <Box display="flex" justifyContent="space-evenly">
@@ -115,5 +115,3 @@ const PaymentMethodContainer = ({ setActivePayment, children }) => {
     </>
   );
 };
-
-export default PaymentMethodContainer;

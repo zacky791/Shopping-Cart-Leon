@@ -1,11 +1,11 @@
 import { Button } from "@chakra-ui/react";
 import Link from "next/link";
+import React from "react";
 
-function RouterButton({ href, children, ...props }) {
+export function RouterButton({ href, children, ...props }) {
   return (
     <Link href={href} passHref>
       <Button {...props}>{children}</Button>
     </Link>
   );
 }
-export default RouterButton;

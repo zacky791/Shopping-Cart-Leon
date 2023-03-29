@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { FaCcMastercard } from "react-icons/fa";
 import { FaCcVisa } from "react-icons/fa";
-import ButtonComponent from "./buttonhandlesubmit";
 import {
   Checkbox,
   Flex,
@@ -16,8 +12,9 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
+import { useFormContext } from "react-hook-form";
 
-const Form = () => {
+export const Form = ({ methods }) => {
   //for display logo mastercard or visa
   const [logoCard, setLogoCard] = useState("");
 
@@ -75,50 +72,14 @@ const Form = () => {
     //   .replace(/(\d{2})(\d{0,2})/, "$1/$2"); //to handle slash between month and year
   };
 
-  //to show inside form data
-  const onSubmit = (data) => console.log(data);
-
-  //validation yup
-  const schema = yup
-    .object({
-      name: yup.string().required("Please insert name"),
-      cardNumber: yup
-        .string()
-        .required("Please insert card number")
-        .min(19, "Card number too short")
-        .max(19, "Card number 16 digit only"),
-      expiryDate: yup
-        .string()
-        .required("Please insert card expiry date")
-        .min(5, "Expiry date too short")
-        .max(5, "Expiry 4 digit number only"),
-      securityCvc: yup
-        .string()
-        .required("Please insert card cvc")
-        .min(3, "CVC/CVV number too short")
-        .max(3, "CVC/CVV 3 digit number only"),
-    })
-    .required();
-
-  const methods = useForm({
-    resolver: yupResolver(schema),
-  });
-
   const {
     register,
-    handleSubmit,
     formState: { errors },
-  } = useForm();
-
-  // //test
-  // const test = () => {
-  //   paymentHandler();
-  //   handleButtonClick();
-  // };
+  } = useFormContext();
 
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <>
+      <form>
         <FormControl isInvalid={errors.name} mb="10px">
           <FormLabel>Name On Card</FormLabel>
           <Input
@@ -132,7 +93,7 @@ const Form = () => {
           <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
         </FormControl>
 
-        <FormControl isInvalid={errors.cardNumber} mb="10px">
+        <FormControl isInvalid={errors?.cardNumber} mb="10px">
           <FormLabel>Card Number</FormLabel>
           <InputGroup>
             <InputRightElement pointerEvents="none" mr="10px" children={showCard()} />
@@ -148,11 +109,11 @@ const Form = () => {
               onInput={handleChange}
             />
           </InputGroup>
-          <FormErrorMessage>{errors.cardNumber?.message}</FormErrorMessage>
+          <FormErrorMessage>{errors?.cardNumber?.message}</FormErrorMessage>
         </FormControl>
 
         <Flex gap="20px">
-          <FormControl isInvalid={errors.expiryDate} mb="10px">
+          <FormControl isInvalid={errors?.expiryDate} mb="10px">
             <FormLabel>Expiry Date</FormLabel>
             <InputGroup>
               <InputRightElement
@@ -181,7 +142,7 @@ const Form = () => {
             <FormErrorMessage>{errors.expiryDate?.message}</FormErrorMessage>
           </FormControl>
 
-          <FormControl isInvalid={errors.securityCvc} mb="10px">
+          <FormControl isInvalid={errors?.securityCvc} mb="10px">
             <FormLabel>CVC/CVV</FormLabel>
             <InputGroup>
               <InputRightElement
@@ -211,16 +172,13 @@ const Form = () => {
                 onInput={validateInput}
               />
             </InputGroup>
-            <FormErrorMessage>{errors.securityCvc?.message}</FormErrorMessage>
+            <FormErrorMessage>{errors?.securityCvc?.message}</FormErrorMessage>
           </FormControl>
-          <ButtonComponent />
         </Flex>
         <Checkbox size="sm" mt="10px" colorScheme="purple" defaultChecked>
           Save this card for my later purchase
         </Checkbox>
       </form>
-    </FormProvider>
+    </>
   );
 };
-
-export default Form;

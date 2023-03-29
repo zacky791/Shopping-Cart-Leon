@@ -1,10 +1,9 @@
-import Logo from "./ui/Logo";
 import React, { useState } from "react";
+import { Logo } from "./Logo";
 import { Box, Flex, Link, Stack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-
-export default function Header() {
+export function Header() {
   //for icon in small medium screen
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);

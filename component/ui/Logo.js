@@ -1,7 +1,7 @@
 import React from "react"
 import { Box, Image, Text } from "@chakra-ui/react"
 
-export default function Logo(props) {
+export function Logo(props) {
   return (
     <Box {...props}>
       <Text fontSize="lg" fontWeight="bold">

@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 
-function NavbarMenuItem(props) {
+export function NavbarMenuItem(props) {
   return (
     <Box>
       <NextLink href="#home">
@@ -11,5 +11,3 @@ function NavbarMenuItem(props) {
     </Box>
   );
 }
-
-export default NavbarMenuItem;

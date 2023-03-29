@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import RouterButton from "@/component/ui/RouterButton";
+import { RouterButton } from "../../component/ui";
 import {
   Button,
   ButtonGroup,
@@ -23,7 +23,6 @@ import {
   MenuItem,
   Image,
 } from "@chakra-ui/react";
-// import child1 from "../assets/test1.webp";
 
 const TeacherProfile = ({ name, profilePicture, university, dayAvailable, timeStart, timeEnd }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
