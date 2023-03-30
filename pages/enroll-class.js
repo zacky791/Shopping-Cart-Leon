@@ -1,7 +1,7 @@
-import { Header, Footer } from "../component/ui";
-import TeacherProfile from "@/features/profile-teacher/TeacherProfile";
-import { Container } from "@chakra-ui/react";
 import React from "react";
+import { Header, Footer } from "../component/ui";
+import TeacherProfile from "../features/profile-teacher/TeacherProfile";
+import { Container } from "@chakra-ui/react";
 import data from "../data/data.json";
 
 //change data to much more specific
@@ -10,15 +10,15 @@ const EnrollClass = () => {
     <>
       <Header />
       <Container maxW="1050px" mt="20px">
-        {data.teacherInformation.map((data, index) => (
+        {data.teacherInformation.map((teacherProfile, index) => (
           <TeacherProfile
             key={index}
-            name={data.name}
-            profilePicture={data.profilePicture}
-            university={data.university}
-            dayAvailable={data.dayAvailable}
-            timeStart={data.timeAvailable.start}
-            timeEnd={data.timeAvailable.end}
+            name={teacherProfile.name}
+            profilePicture={teacherProfile.profilePicture}
+            university={teacherProfile.university}
+            dayAvailable={teacherProfile.dayAvailable}
+            timeStart={teacherProfile.timeAvailable.start}
+            timeEnd={teacherProfile.timeAvailable.end}
           />
         ))}
       </Container>

@@ -4,7 +4,7 @@
       "id": 0,
       "name": "Ahmad Maslan",
       "university": "oxford",
-      "profilePicture": "assets/profile picture teacher 1.webp",
+      "profilePicture": "assets/profilePictureTeacher1.webp",
       "dayAvailable": "Monday",
       "timeAvailable": {
         "start": "1pm",
@@ -15,7 +15,7 @@
       "id": 1,
       "name": "Shima",
       "university": "Malaya",
-      "profilePicture": "assets/profile picture teacher 2.webp",
+      "profilePicture": "assets/profilePictureTeacher2.webp",
       "dayAvailable": "Friday",
       "timeAvailable": {
         "start": "4pm",
@@ -26,7 +26,7 @@
       "id": 2,
       "name": "Mardiah",
       "university": "Putra Malaysia",
-      "profilePicture": "assets/profile picture teacher 3.webp",
+      "profilePicture": "assets/profilePictureTeacher3.webp",
       "dayAvailable": "Tuesday",
       "timeAvailable": {
         "start": "8am",
@@ -37,7 +37,7 @@
       "id": 3,
       "name": "Fatin Nur Liyana",
       "university": "Teknologi Petronas",
-      "profilePicture": "assets/profile picture teacher 4.webp",
+      "profilePicture": "assets/profilePictureTeacher4.webp",
       "dayAvailable": "Wednesday",
       "timeAvailable": {
         "start": "10am",
@@ -48,12 +48,14 @@
       "id": 4,
       "name": "Siti Nur Aisyah",
       "university": "Malaysia Pahang",
-      "profilePicture": "assets/profile picture teacher 5.webp",
+      "profilePicture": "assets/profilePictureTeacher5.webp",
       "dayAvailable": "Friday",
       "timeAvailable": {
         "start": "2pm",
         "end": "3pm"
       }
     }
-  ]
+  ],
+
+  "packageCourse": [{ "courseName": "Math Lesson", "price": "RM 299", "discount": "RM 100", "totalPrice": "RM 199" }]
 }

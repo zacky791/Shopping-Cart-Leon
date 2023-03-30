@@ -21,7 +21,7 @@ const Description = () => {
       >
         <Box w="380px">
           <Heading fontSize="20px" mb="10p  x">
-            What you will learn
+            What You Will Learn
           </Heading>
           <Box>
             <Text fontSize="17px" p="3px" display="flex" gap="8px" alignItems="start">
@@ -37,7 +37,7 @@ const Description = () => {
 
         <Box>
           <Heading fontSize="20px" mb="10px">
-            This course includes:
+            This Course Includes:
           </Heading>
           <Box>
             <Text fontSize="17px" p="3px" display="flex" alignItems="center" gap="8px">

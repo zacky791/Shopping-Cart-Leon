@@ -1,14 +1,15 @@
+import React from "react";
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import React from "react";
 import { useFormContext } from "react-hook-form";
+import course from "../../data/data.json";
 
-export const Summary = ({ activePayment, ready, methods }) => {
-  //for handling submit outside form
+export const Summary = ({ activePayment, ready }) => {
+  //for handling which payment gateway will lead to
   const handleButtonClick = () => {
     if (activePayment === 1) {
-      methods.handleSubmit(methods.onSubmit);
-      methods.formState.isValid ? router.push("/thank-you-form") : null;
+      handleSubmit(onSubmit)();
+      router.push("/thank-you-form");
     } else if (activePayment === 2) {
       router.push("https://www.paypal.com/checkoutnow?token=7FJ482267V245434S");
     } else if (activePayment === 3) {
@@ -20,48 +21,42 @@ export const Summary = ({ activePayment, ready, methods }) => {
 
   const onSubmit = (data) => console.log(data);
 
-  const {
-    handleSubmit,
-    formState: { isValid },
-  } = useFormContext();
-
-  const handleButtonClick2 = () => {
-    handleSubmit(onSubmit)();
-    console.log(isValid);
-    // methods.formState.isValid ? router.push("/thank-you-form") : null;
-  };
+  const { handleSubmit } = useFormContext();
 
   //for router
   const router = useRouter();
+
   return (
     <>
-      <Box>
-        <Box position="sticky" mt="140px" bg="white" boxShadow="xl" borderRadius="20px" padding="20px" height="250px">
-          <Box p="20px" w="320px">
-            <Text fontWeight="bold">Summary</Text>
+      <Box position="sticky" mt="140px" bg="white" boxShadow="xl" borderRadius="20px" padding="20px" height="250px">
+        <Box p="20px" w="320px">
+          <Text fontWeight="bold">Summary</Text>
 
-            <Flex justifyContent="space-between">
-              <Text>Math package</Text>
-              <Text>RM 299</Text>
-            </Flex>
+          <Flex justifyContent="space-between">
+            <Text>{course.packageCourse[0].courseName}</Text>
+            <Text>{course.packageCourse[0].price}</Text>
+          </Flex>
 
-            <Flex justifyContent="space-between" borderBottom="1px" py="3px">
-              <Text>Discount</Text>
-              <Text>RM 100</Text>
-            </Flex>
+          <Flex justifyContent="space-between" borderBottom="1px" py="3px">
+            <Text>Discount</Text>
+            <Text>{course.packageCourse[0].discount}</Text>
+          </Flex>
 
-            <Flex justifyContent="space-between">
-              <Text>Total</Text>
-              <Text>RM 199</Text>
-            </Flex>
-          </Box>
-          <Button type="submit" disabled={ready} onClick={handleButtonClick2} colorScheme="green" mt="15px" ml="70px">
-            Complete Checkout
-          </Button>
-          {/* <Button type="submit" onClick={handleButtonClick2}>
-            Test123
-          </Button> */}
+          <Flex justifyContent="space-between" py="3px">
+            <Text>Total</Text>
+            <Text>{course.packageCourse[0].totalPrice}</Text>
+          </Flex>
         </Box>
+        <Button
+          type="submit"
+          isDisabled={!ready}
+          onClick={handleButtonClick}
+          colorScheme={ready ? "green" : "blackAlpha"}
+          mt="15px"
+          ml="70px"
+        >
+          Complete Checkout
+        </Button>
       </Box>
     </>
   );

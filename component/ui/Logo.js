@@ -1,5 +1,5 @@
-import React from "react"
-import { Box, Image, Text } from "@chakra-ui/react"
+import React from "react";
+import { Box, Image, Text } from "@chakra-ui/react";
 
 export function Logo(props) {
   return (
@@ -8,5 +8,5 @@ export function Logo(props) {
         <Image src={props.src} alt={props.alt} width={props.width} />
       </Text>
     </Box>
-  )
+  );
 }

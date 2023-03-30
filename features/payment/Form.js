@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCcMastercard } from "react-icons/fa";
 import { FaCcVisa } from "react-icons/fa";
 import {
@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useFormContext } from "react-hook-form";
 
-export const Form = ({ methods }) => {
+export const Form = ({ setReady }) => {
   //for display logo mastercard or visa
   const [logoCard, setLogoCard] = useState("");
 
@@ -74,8 +74,14 @@ export const Form = ({ methods }) => {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
+    trigger,
+    watch,
   } = useFormContext();
+
+  useEffect(() => {
+    isValid ? setReady(true) : null;
+  }, [watch()]);
 
   return (
     <>
@@ -89,6 +95,9 @@ export const Form = ({ methods }) => {
             placeholder="Name On Card"
             {...register("name")}
             focusBorderColor="purple.600"
+            onBlur={() => {
+              trigger("name");
+            }}
           />
           <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
         </FormControl>
@@ -107,6 +116,10 @@ export const Form = ({ methods }) => {
               type="text"
               maxLength="19"
               onInput={handleChange}
+              onBlur={() => {
+                trigger("cardNumber");
+                isValid ? setReady(false) : null;
+              }}
             />
           </InputGroup>
           <FormErrorMessage>{errors?.cardNumber?.message}</FormErrorMessage>
@@ -137,6 +150,10 @@ export const Form = ({ methods }) => {
                 maxLength="5"
                 onInput={handleExpiryDateChange}
                 value={expired}
+                onBlur={() => {
+                  trigger("expiryDate");
+                  isValid ? setReady(false) : null;
+                }}
               />
             </InputGroup>
             <FormErrorMessage>{errors.expiryDate?.message}</FormErrorMessage>
@@ -170,6 +187,10 @@ export const Form = ({ methods }) => {
                 type="text"
                 maxLength="3"
                 onInput={validateInput}
+                onBlur={() => {
+                  trigger("securityCvc");
+                  isValid ? setReady(true) : null;
+                }}
               />
             </InputGroup>
             <FormErrorMessage>{errors?.securityCvc?.message}</FormErrorMessage>

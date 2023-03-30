@@ -1,18 +1,16 @@
 import * as yup from "yup";
+import React, { useState } from "react";
 import { Header, Footer } from "../component/ui";
 import { Container, Flex } from "@chakra-ui/react";
-import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Form, PaymentMethodContainer, Summary } from "../features/payment";
 
 const Checkout = () => {
-  //for active payment
+  //for deciding active payment to proceed example debit,paypal or grabpay
   const [activePayment, setActivePayment] = useState(1);
+  //for allow button to proceed checkout when all requirement validation meet
   const [ready, setReady] = useState(false);
-  const paymentHandler = (handleButtonClick) => {
-    console.log(handleButtonClick);
-  };
 
   //validation yup
   const schema = yup
@@ -46,14 +44,10 @@ const Checkout = () => {
       <Container maxW="1050px" mt="30px">
         <Flex justifyContent="space-evenly">
           <FormProvider {...methods}>
-            <PaymentMethodContainer
-              setActivePayment={setActivePayment}
-              activePayment={activePayment}
-              paymentHandler={paymentHandler}
-            >
+            <PaymentMethodContainer setReady={setReady} setActivePayment={setActivePayment}>
               <Form setReady={setReady} />
             </PaymentMethodContainer>
-            <Summary paymentHandler={paymentHandler} ready={ready} methods={methods} />
+            <Summary ready={ready} activePayment={activePayment} />
           </FormProvider>
         </Flex>
       </Container>
@@ -63,6 +57,3 @@ const Checkout = () => {
 };
 
 export default Checkout;
-
-// create payment and submit button component
-// then isvalidity from payment to parent to submit
