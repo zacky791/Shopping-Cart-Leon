@@ -1,0 +1,5 @@
+ //to handle slash between month and year
+.replace(/(\d{2})(\d{0,2})/, "$1/$2");
+
+ // facade
+ link: process.env.NEXT_PUBLIC_PAYPAL_URL || "www.",

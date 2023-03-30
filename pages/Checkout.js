@@ -9,6 +9,7 @@ import { Form, PaymentMethodContainer, Summary } from "../features/payment";
 const Checkout = () => {
   //for deciding active payment to proceed example debit,paypal or grabpay
   const [activePayment, setActivePayment] = useState(1);
+
   //for allow button to proceed checkout when all requirement validation meet
   const [ready, setReady] = useState(false);
 

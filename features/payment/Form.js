@@ -21,9 +21,16 @@ export const Form = ({ setReady }) => {
   //for expiry date
   const [expired, setExpired] = useState();
 
-  //for passing and updating the state of activepayment
-  // const [test, setTest] = useState();
+  //for allowing numeric only
+  function validateInput(event) {
+    const input = event.target.value;
+    const regex = /^[0-9\b]+$/;
+    if (!regex.test(input)) {
+      event.target.value = input.replace(/[^\d]/g, "");
+    }
+  }
 
+  //for showing card icon based on number digit
   const showCard = () => {
     if (logoCard === "") {
       return (
@@ -37,15 +44,6 @@ export const Form = ({ setReady }) => {
       return <FaCcMastercard size="20px" />;
     }
   };
-
-  //for allowing numeric only
-  function validateInput(event) {
-    const input = event.target.value;
-    const regex = /^[0-9\b]+$/;
-    if (!regex.test(input)) {
-      event.target.value = input.replace(/[^\d]/g, "");
-    }
-  }
 
   //for card number
   const handleChange = (event) => {
@@ -69,7 +67,6 @@ export const Form = ({ setReady }) => {
 
     const formattedValue = `${month}/${year}`;
     setExpired(formattedValue);
-    //   .replace(/(\d{2})(\d{0,2})/, "$1/$2"); //to handle slash between month and year
   };
 
   const {

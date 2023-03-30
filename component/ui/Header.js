@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Logo } from "./Logo";
 import { Box, Flex, Link, Stack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 export function Header() {
-  //for icon in small medium screen
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-
   return (
     <>
       <Flex alignItems="center" justifyContent="space-between" bg="#7e43c7" h="80px" color="white">
@@ -28,8 +24,6 @@ export function Header() {
             <Link>Blog</Link>
             <Link>About</Link>
             <Link>Contact Us</Link>
-
-            {/* <AiOutlineMenu toggle={toggle} isOpen={isOpen} /> */}
           </Stack>
         </Box>
       </Flex>

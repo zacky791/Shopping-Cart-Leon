@@ -25,11 +25,13 @@ import {
 } from "@chakra-ui/react";
 
 const TeacherProfile = ({ name, profilePicture, university, dayAvailable, timeStart, timeEnd }) => {
+  //for modal
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   //for picking which child is currently active
   const [updateChildValue, setUpdateChildValue] = useState();
 
+  //for which child is being pick
   const changeHandler = (name) => {
     onOpen();
     setUpdateChildValue(name);

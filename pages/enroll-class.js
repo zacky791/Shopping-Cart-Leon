@@ -4,7 +4,6 @@ import TeacherProfile from "../features/profile-teacher/TeacherProfile";
 import { Container } from "@chakra-ui/react";
 import data from "../data/data.json";
 
-//change data to much more specific
 const EnrollClass = () => {
   return (
     <>
