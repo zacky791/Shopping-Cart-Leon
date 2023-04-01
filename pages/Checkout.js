@@ -4,7 +4,7 @@ import { Header, Footer } from "../component/ui";
 import { Container, Flex } from "@chakra-ui/react";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Form, PaymentMethodContainer, Summary } from "../features/payment";
+import { PaymentForm, PaymentMethodContainer, Summary } from "../features/payment";
 
 const Checkout = () => {
   //for deciding active payment to proceed example debit,paypal or grabpay
@@ -14,9 +14,9 @@ const Checkout = () => {
   const [ready, setReady] = useState(false);
 
   //validation yup
-  const schema = yup
+  const schemaPaymentGateway = yup
     .object({
-      name: yup.string().required("Please insert name"),
+      nameOnCard: yup.string().required("Please insert name"),
       cardNumber: yup
         .string()
         .required("Please insert card number")
@@ -35,18 +35,33 @@ const Checkout = () => {
     })
     .required();
 
+  const schemaBilling = yup
+    .object({
+      firstName: yup.string().required("Please insert first name"),
+      lastName: yup.string().required("Please insert last name"),
+      address: yup.string().required("Please insert address"),
+      zip: yup.string().required("Please insert zip code"),
+      city: yup.string().required("Please insert city"),
+    })
+    .required();
+
+  const combinedSchema = yup.object().shape({
+    ...schemaPaymentGateway.fields,
+    ...schemaBilling.fields,
+  });
+
   const methods = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(combinedSchema),
   });
 
   return (
     <>
       <Header />
       <Container maxW="1050px" mt="30px">
-        <Flex justifyContent="space-evenly">
+        <Flex justifyContent="space-evenly" gap="60px">
           <FormProvider {...methods}>
             <PaymentMethodContainer setReady={setReady} setActivePayment={setActivePayment}>
-              <Form setReady={setReady} />
+              <PaymentForm setReady={setReady} />
             </PaymentMethodContainer>
             <Summary ready={ready} activePayment={activePayment} />
           </FormProvider>

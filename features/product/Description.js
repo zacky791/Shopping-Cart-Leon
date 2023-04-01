@@ -1,10 +1,6 @@
 import React from "react";
-import { IoGameController } from "react-icons/io5";
-import { SiGoogleclassroom } from "react-icons/si";
-import { IoTime } from "react-icons/io5";
-import { FaChalkboardTeacher } from "react-icons/fa";
-import { TiTick } from "react-icons/ti";
 import { Box, Container, Heading, Text } from "@chakra-ui/react";
+import { IoGameController, SiGoogleclassroom, IoTime, FaChalkboardTeacher, TiTick } from "../../component/ui";
 
 const Description = () => {
   return (

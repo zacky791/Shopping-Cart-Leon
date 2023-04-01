@@ -1,6 +1,6 @@
 import React from "react";
-import { Header, Footer } from "../component/ui";
 import TeacherProfile from "../features/profile-teacher/TeacherProfile";
+import { Header, Footer } from "../component/ui";
 import { Container } from "@chakra-ui/react";
 import data from "../data/data.json";
 

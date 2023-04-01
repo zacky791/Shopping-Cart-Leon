@@ -1,10 +1,6 @@
 import React from "react";
-import { RouterButton } from "../../component/ui";
-import { BsFillSunFill } from "react-icons/bs";
-import { BsFillCalendarWeekFill } from "react-icons/bs";
-import { AiFillStar } from "react-icons/ai";
 import { Box, Container, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import { IoTime } from "react-icons/io5";
+import { RouterButton, BsFillSunFill, BsFillCalendarWeekFill, AiFillStar, IoTime } from "../../component/ui";
 
 const MainProduct = () => {
   return (

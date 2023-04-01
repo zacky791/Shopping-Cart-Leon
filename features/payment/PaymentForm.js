@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaCcMastercard } from "react-icons/fa";
-import { FaCcVisa } from "react-icons/fa";
+import { FaCcMastercard, FaCcVisa } from "react-icons/fa";
 import {
   Checkbox,
   Flex,
@@ -14,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useFormContext } from "react-hook-form";
 
-export const Form = ({ setReady }) => {
+export const PaymentForm = ({ setReady }) => {
   //for display logo mastercard or visa
   const [logoCard, setLogoCard] = useState("");
 
@@ -83,20 +82,20 @@ export const Form = ({ setReady }) => {
   return (
     <>
       <form>
-        <FormControl isInvalid={errors.name} mb="10px">
+        <FormControl isInvalid={errors.nameOnCard} mb="10px">
           <FormLabel>Name On Card</FormLabel>
           <Input
             borderRadius="10px"
             boxShadow="lg"
             bg="white"
             placeholder="Name On Card"
-            {...register("name")}
+            {...register("nameOnCard")}
             focusBorderColor="purple.600"
             onBlur={() => {
-              trigger("name");
+              trigger("nameOnCard");
             }}
           />
-          <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
+          <FormErrorMessage>{errors.nameOnCard?.message}</FormErrorMessage>
         </FormControl>
 
         <FormControl isInvalid={errors?.cardNumber} mb="10px">

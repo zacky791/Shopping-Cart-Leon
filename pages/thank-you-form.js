@@ -1,6 +1,6 @@
 import React from "react";
-import { Center, Container, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { Center, Container, Text } from "@chakra-ui/react";
 import { Header, Footer, RouterButton } from "../component/ui";
 
 const ThankYouForm = () => {

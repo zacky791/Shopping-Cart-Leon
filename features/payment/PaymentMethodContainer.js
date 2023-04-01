@@ -1,11 +1,7 @@
 import React from "react";
-import { Accordion, Box, ButtonGroup, Heading, Select, Text } from "@chakra-ui/react";
-import { BiWorld } from "react-icons/bi";
-import { BsFillCreditCardFill } from "react-icons/bs";
-import { FaCcPaypal } from "react-icons/fa";
-import { SiGrab } from "react-icons/si";
-import { RouterButton } from "../../component/ui";
-import PaymentAccordion from "./PaymentAccordion";
+import { Accordion, Box, ButtonGroup, Flex, Heading, Text } from "@chakra-ui/react";
+import { FaCcPaypal, SiGrab, BsFillCreditCardFill, RouterButton } from "../../component/ui";
+import { BillingForm, PaymentAccordion } from "./index";
 
 export const PaymentMethodContainer = ({ setReady, setActivePayment, children }) => {
   const facadePaymentGateway = [
@@ -41,26 +37,12 @@ export const PaymentMethodContainer = ({ setReady, setActivePayment, children })
 
   return (
     <>
-      <Box display="flex" justifyContent="space-evenly">
+      <Flex justifyContent="space-evenly">
         <Box bg="white" boxShadow="xl" borderRadius="20px" padding="60px">
           <Heading mb="20px">Checkout</Heading>
-          <Box>
-            <Text mb="7px"> Billing Address</Text>
-            <Text mb="7px">Country</Text>
-            <Select w="140px" bgColor="purple.500" color="white" mb="10px" icon={<BiWorld />}>
-              <option value="option1" defaultValue style={{ color: "black" }}>
-                Malaysia
-              </option>
-              <option value="option2" style={{ color: "black" }}>
-                Thailand
-              </option>
-              <option value="option3" style={{ color: "black" }}>
-                London
-              </option>
-            </Select>
-          </Box>
-
-          <Text mb="10px">Payment Method</Text>
+          <BillingForm />
+          <Text mb="7px"> Billing Address</Text>
+          <Text mb="15px">Payment Method</Text>
           <Accordion mb="10px" boxShadow="xl" borderRadius="8px" defaultIndex={[0]} overflow="hidden">
             {facadePaymentGateway.map((data, index) => {
               return (
@@ -82,7 +64,7 @@ export const PaymentMethodContainer = ({ setReady, setActivePayment, children })
             </RouterButton>
           </ButtonGroup>
         </Box>
-      </Box>
+      </Flex>
     </>
   );
 };
