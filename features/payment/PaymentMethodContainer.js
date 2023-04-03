@@ -40,8 +40,8 @@ export const PaymentMethodContainer = ({ setReady, setActivePayment, children })
       <Flex justifyContent="space-evenly">
         <Box bg="white" boxShadow="xl" borderRadius="20px" padding="60px">
           <Heading mb="20px">Checkout</Heading>
-          <BillingForm />
           <Text mb="7px"> Billing Address</Text>
+          <BillingForm />
           <Text mb="15px">Payment Method</Text>
           <Accordion mb="10px" boxShadow="xl" borderRadius="8px" defaultIndex={[0]} overflow="hidden">
             {facadePaymentGateway.map((data, index) => {

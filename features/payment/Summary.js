@@ -26,7 +26,18 @@ export const Summary = ({ activePayment, ready }) => {
 
   return (
     <>
-      <Box position="sticky" mt="140px" bg="white" boxShadow="xl" borderRadius="20px" padding="20px" height="250px">
+      <Box
+        position="fixed"
+        mt="140px"
+        bg="white"
+        boxShadow="xl"
+        borderRadius="20px"
+        padding="20px"
+        height="250px"
+        top="30%"
+        left="75%"
+        transform="translate(-50%, -50%)"
+      >
         <Box p="20px" w="320px">
           <Text fontWeight="bold">Summary</Text>
 

@@ -57,7 +57,7 @@ const Checkout = () => {
   return (
     <>
       <Header />
-      <Container maxW="1050px" mt="30px">
+      <Container maxW="1050px" mt="30px" mr="500px">
         <Flex justifyContent="space-evenly" gap="60px">
           <FormProvider {...methods}>
             <PaymentMethodContainer setReady={setReady} setActivePayment={setActivePayment}>
