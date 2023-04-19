@@ -1,10 +1,18 @@
 import React from "react";
 import { Box, Container, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { RouterButton, BsFillSunFill, BsFillCalendarWeekFill, AiFillStar, IoTime } from "../../component/ui";
+import Description from "./Description";
 
-const MainProduct = () => {
+const MainCourse = ({ courseTitle }) => {
   return (
     <>
+      <button
+        onClick={() => {
+          console.log(course);
+        }}
+      >
+        Test
+      </button>
       <Container display="flex" mt="30px" mb="20px" maxW="930px" gap="13px">
         <Flex
           flexDirection="column"
@@ -16,7 +24,7 @@ const MainProduct = () => {
           width="500px"
         >
           <Box>
-            <Heading>Math Lesson</Heading>
+            <Heading>{courseTitle}</Heading>
           </Box>
           <Box>
             <Text fontSize="20px" mb="10px">
@@ -41,7 +49,7 @@ const MainProduct = () => {
           </Flex>
 
           <RouterButton colorScheme="purple" color="white" href="/enroll-class" display="flex" gap="10px">
-            <AiFillStar fontSize="20px" /> Go To Classroom Available
+            <AiFillStar fontSize="20px" /> Go To Available Classes
           </RouterButton>
           <Text fontWeight="bold" fontSize="25px">
             RM 299
@@ -55,8 +63,9 @@ const MainProduct = () => {
           <Image src="/assets/Tutor.webp" borderRadius="20px" boxShadow="xl" />
         </Box>
       </Container>
+      <Description />
     </>
   );
 };
 
-export default MainProduct;
+export default MainCourse;

@@ -4,7 +4,7 @@ import { Header, Footer } from "../component/ui";
 import { Container, Flex } from "@chakra-ui/react";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { PaymentForm, PaymentMethodContainer, Summary } from "../features/payment";
+import { PaymentForm, PaymentMethodContainer, Summary } from "../features/payment/Index";
 
 const Checkout = () => {
   //for deciding active payment to proceed example debit,paypal or grabpay

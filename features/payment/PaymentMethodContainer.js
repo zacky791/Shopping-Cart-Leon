@@ -1,7 +1,7 @@
 import React from "react";
 import { Accordion, Box, ButtonGroup, Flex, Heading, Text } from "@chakra-ui/react";
 import { FaCcPaypal, SiGrab, BsFillCreditCardFill, RouterButton } from "../../component/ui";
-import { BillingForm, PaymentAccordion } from "./index";
+import { BillingForm, PaymentAccordion } from "./Index";
 
 export const PaymentMethodContainer = ({ setReady, setActivePayment, children }) => {
   const facadePaymentGateway = [

@@ -1,5 +1,5 @@
 {
-  "teacherInformation": [
+  "tutorInformation": [
     {
       "id": 0,
       "name": "Ahmad Maslan",
@@ -25,7 +25,7 @@
     {
       "id": 2,
       "name": "Mardiah",
-      "university": "Putra Malaysia",
+      "university": "Walter",
       "profilePicture": "assets/profilePictureTeacher3.webp",
       "dayAvailable": "Tuesday",
       "timeAvailable": {
@@ -36,7 +36,7 @@
     {
       "id": 3,
       "name": "Fatin Nur Liyana",
-      "university": "Teknologi Petronas",
+      "university": "Malaysia",
       "profilePicture": "assets/profilePictureTeacher4.webp",
       "dayAvailable": "Wednesday",
       "timeAvailable": {
@@ -47,7 +47,7 @@
     {
       "id": 4,
       "name": "Siti Nur Aisyah",
-      "university": "Malaysia Pahang",
+      "university": "New York",
       "profilePicture": "assets/profilePictureTeacher5.webp",
       "dayAvailable": "Friday",
       "timeAvailable": {

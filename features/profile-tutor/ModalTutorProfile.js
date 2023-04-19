@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
 
-const ModalTeacherProfile = (props) => {
+const ModalTutorProfile = (props) => {
   return (
     <>
       <Flex justifyContent="center" alignItems="center" gap="60px">
@@ -30,4 +30,4 @@ const ModalTeacherProfile = (props) => {
   );
 };
 
-export default ModalTeacherProfile;
+export default ModalTutorProfile;

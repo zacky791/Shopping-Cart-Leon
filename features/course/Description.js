@@ -19,7 +19,7 @@ const Description = () => {
           <Heading fontSize="20px" mb="10p  x">
             What You Will Learn
           </Heading>
-          <Box>
+          <Box mt="7px">
             <Text fontSize="17px" p="3px" display="flex" gap="8px" alignItems="start">
               <TiTick size="40px" style={{ height: "28px" }} /> Enhance logical reasoning and problem-solving abilities
               by engaging in enjoyable puzzles and games.
