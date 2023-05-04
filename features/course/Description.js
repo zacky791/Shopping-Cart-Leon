@@ -1,22 +1,30 @@
 import React from "react";
 import { Box, Container, Heading, Text } from "@chakra-ui/react";
-import { IoGameController, SiGoogleclassroom, IoTime, FaChalkboardTeacher, TiTick } from "../../component/ui";
+import {
+  IoGameController,
+  SiGoogleclassroom,
+  IoTime,
+  FaChalkboardTeacher,
+  TiTick,
+  BsFillSunFill,
+  BsFillCalendarWeekFill,
+} from "../../component/ui";
 
 const Description = () => {
   return (
     <>
       <Container
-        maxW="900px"
-        bgColor="purple.100"
+        maxW="1200px"
         borderRadius="20px"
-        padding="20px"
+        padding="30px"
+        px="40px"
         display="flex"
         bg="white"
         boxShadow="xl"
-        gap="110px"
+        gap="100px"
       >
         <Box w="380px">
-          <Heading fontSize="20px" mb="10p  x">
+          <Heading as="h1" fontSize="20px" mb="10p  x">
             What You Will Learn
           </Heading>
           <Box mt="7px">
@@ -32,8 +40,8 @@ const Description = () => {
         </Box>
 
         <Box>
-          <Heading fontSize="20px" mb="10px">
-            This Course Includes:
+          <Heading as="h1" fontSize="20px" mb="10px">
+            This Course Includes
           </Heading>
           <Box>
             <Text fontSize="17px" p="3px" display="flex" alignItems="center" gap="8px">
@@ -47,6 +55,22 @@ const Description = () => {
             </Text>
             <Text fontSize="17px" p="3px" display="flex" alignItems="center" gap="8px">
               <FaChalkboardTeacher /> 1 Caring and Qualified Tutor
+            </Text>
+          </Box>
+        </Box>
+        <Box>
+          <Heading as="H1" fontSize="20px" mb="10px">
+            Class Description
+          </Heading>
+          <Box>
+            <Text fontSize="17px" p="3px" display="flex" gap="8px" alignItems="center">
+              <BsFillCalendarWeekFill /> 3 Sessions per week for 4 weeks
+            </Text>
+            <Text fontSize="17px" p="3px" display="flex" gap="8px" alignItems="center">
+              <IoTime /> Estimate 1 hour per 1 Session
+            </Text>
+            <Text fontSize="17px" p="3px" display="flex" gap="8px" alignItems="center">
+              <BsFillSunFill /> Morning and evening classes
             </Text>
           </Box>
         </Box>

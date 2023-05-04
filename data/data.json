@@ -7,8 +7,8 @@
       "profilePicture": "assets/profilePictureTeacher1.webp",
       "dayAvailable": "Monday",
       "timeAvailable": {
-        "start": "1pm",
-        "end": "2pm"
+        "start": "1:00 PM",
+        "end": "2:00 PM"
       }
     },
     {
@@ -18,8 +18,8 @@
       "profilePicture": "assets/profilePictureTeacher2.webp",
       "dayAvailable": "Friday",
       "timeAvailable": {
-        "start": "4pm",
-        "end": "5pm"
+        "start": "4:00 PM",
+        "end": "5:00 PM"
       }
     },
     {
@@ -29,8 +29,8 @@
       "profilePicture": "assets/profilePictureTeacher3.webp",
       "dayAvailable": "Tuesday",
       "timeAvailable": {
-        "start": "8am",
-        "end": "9am"
+        "start": "8:00 PM",
+        "end": "9:00 PM"
       }
     },
     {
@@ -40,8 +40,8 @@
       "profilePicture": "assets/profilePictureTeacher4.webp",
       "dayAvailable": "Wednesday",
       "timeAvailable": {
-        "start": "10am",
-        "end": "11am"
+        "start": "10:00 PM",
+        "end": "11:00 PM"
       }
     },
     {
@@ -51,8 +51,8 @@
       "profilePicture": "assets/profilePictureTeacher5.webp",
       "dayAvailable": "Friday",
       "timeAvailable": {
-        "start": "2pm",
-        "end": "3pm"
+        "start": "2:00 PM",
+        "end": "3:00 PM"
       }
     }
   ],

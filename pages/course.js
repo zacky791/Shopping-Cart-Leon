@@ -12,7 +12,7 @@ export default function Course() {
   useEffect(() => {
     const fetchCourseData = async () => {
       try {
-        const response = await axios.get("https://backend.dev.leonclassroom.com/items/courses");
+        const response = await axios.get("https://backend.of.leonclassroom.com/items/courses");
         setCourseData(response.data);
         setLoading(false);
       } catch (error) {
@@ -34,7 +34,16 @@ export default function Course() {
     <>
       <Header />
       {courseData.data.map((course, index) => {
-        return <MainCourse key={index} courseTitle={course.title} courseImage={course.featured_image} />;
+        return (
+          <MainCourse
+            key={course.id}
+            index={index}
+            course={course}
+            courseTitle={course.title}
+            courseImage={course.featured_image}
+            courseDescription={course.description}
+          />
+        );
       })}
       <Footer />
     </>

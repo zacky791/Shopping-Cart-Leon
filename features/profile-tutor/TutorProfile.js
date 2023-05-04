@@ -56,13 +56,12 @@ const TutorProfile = ({ name, profilePicture, university, dayAvailable, timeStar
             <Text fontWeight="bold">{name}</Text>
           </Box>
 
-          <Text mt="5px">5 Star ⭐</Text>
+          <Text mt="5px">⭐⭐⭐⭐⭐</Text>
           <Text mt="5px">Teach in 3 classes</Text>
 
           <Text mt="5px">Availability:</Text>
           <Flex>
             <Text>
-              <Text>{dayAvailable}</Text>
               {timeStart} - {timeEnd}
             </Text>
           </Flex>
@@ -87,7 +86,7 @@ const TutorProfile = ({ name, profilePicture, university, dayAvailable, timeStar
                 <Image
                   boxSize="2rem"
                   borderRadius="full"
-                  src="/assets/test1.webp"
+                  src="/assets/defaultPicture.webp"
                   alt="Fluffybuns the destroyer"
                   mr="12px"
                 />
@@ -100,7 +99,13 @@ const TutorProfile = ({ name, profilePicture, university, dayAvailable, timeStar
                   changeHandler("Azizul");
                 }}
               >
-                <Image boxSize="2rem" borderRadius="full" src="/assets/test1.webp" alt="Simon the pensive" mr="12px" />
+                <Image
+                  boxSize="2rem"
+                  borderRadius="full"
+                  src="/assets/defaultPicture.webp"
+                  alt="Simon the pensive"
+                  mr="12px"
+                />
                 <Text>Azizul</Text>
               </MenuItem>
 
@@ -110,7 +115,13 @@ const TutorProfile = ({ name, profilePicture, university, dayAvailable, timeStar
                   changeHandler("Matmen");
                 }}
               >
-                <Image boxSize="2rem" borderRadius="full" src="/assets/test1.webp" alt="Simon the pensive" mr="12px" />
+                <Image
+                  boxSize="2rem"
+                  borderRadius="full"
+                  src="/assets/defaultPicture.webp"
+                  alt="Simon the pensive"
+                  mr="12px"
+                />
                 <Text>Matmen</Text>
               </MenuItem>
             </MenuList>
@@ -197,7 +208,7 @@ const TutorProfile = ({ name, profilePicture, university, dayAvailable, timeStar
                     </Flex>
                     <Flex gap="4px">
                       <Text>Rating:</Text>
-                      <Text>5 Star ⭐</Text>
+                      <Text>⭐⭐⭐⭐</Text>
                     </Flex>
                     <Flex gap="4px">
                       <Text>Age:</Text>

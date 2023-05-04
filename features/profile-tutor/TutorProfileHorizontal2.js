@@ -21,20 +21,10 @@ import {
   MenuItem,
   Image,
   AspectRatio,
+  Grid,
 } from "@chakra-ui/react";
 
-const TutorProfile2 = ({
-  name,
-  university,
-  dayAvailable,
-  timeStart,
-  timeEnd,
-  tutorImage,
-  tutorFirstName,
-  tutorLastName,
-  tutorDescription,
-  tutorLocation,
-}) => {
+const TutorProfileHorizontal = ({ name, profilePicture, university, dayAvailable, timeStart, timeEnd }) => {
   //for modal
   const { isOpen: isOpenModalEnroll, onOpen: onOpenEnroll, onClose: onCloseModalEnroll } = useDisclosure();
   const { isOpen: isOpenModalAboutMe, onOpen: onOpenAboutMe, onClose: onCloseModalAboutMe } = useDisclosure();
@@ -50,103 +40,87 @@ const TutorProfile2 = ({
 
   return (
     <>
-      <Flex
-        flexDirection="column"
-        justifyContent="center"
+      <Grid
+        templateColumns="180px 200px 210px 250px"
+        alignItems="center"
         boxShadow="xl"
         gap="10px"
         mt="20px"
-        w="300px"
+        w="900px"
         bg="white"
         borderRadius="20px"
         padding="20px"
       >
-        <Image
-          src={tutorImage ? `https://backend.of.leonclassroom.com/assets/${tutorImage}` : "/assets/defaultPicture.webp"}
-          boxSize="200px"
-          width="300px"
-          objectFit="cover"
-          borderRadius="20px"
-          m="auto"
-        />
-        <Box paddingY="10px">
-          <Box wordBreak="break-word" maxW="150px">
-            <Text fontWeight="bold">{`${tutorFirstName} ${tutorLastName}`}</Text>
-          </Box>
+        <Avatar src={profilePicture} as="button" onClick={onOpenAboutMe} boxSize="80px" objectFit="cover" m="auto" />
 
-          <Text mt="5px">5 Star ⭐</Text>
-          <Text mt="5px">Teach in 3 classes</Text>
-
-          <Text mt="5px">Availability:</Text>
-          <Flex>
-            <Text>
-              <Text>{dayAvailable}</Text>
-              {timeStart} - {timeEnd}
-            </Text>
-          </Flex>
+        <Box wordBreak="break-word">
+          <Text fontWeight="bold">{name}</Text>
+          <Text mt="5px">⭐⭐⭐⭐⭐</Text>
         </Box>
 
-        <Flex>
-          <Button variant="outline" colorScheme="purple" onClick={onOpenAboutMe}>
-            About Me
-          </Button>
-          <Menu>
-            <MenuButton as={Button} colorScheme="purple" ml="10px" width="170px">
-              Enroll Class
-            </MenuButton>
+        <Box>
+          <Text>Teach In 3 Classes</Text>
+          <Text mt="5px">
+            {timeStart} - {timeEnd}
+          </Text>
+        </Box>
 
-            <MenuList>
-              <MenuItem
-                minH="48px"
-                onClick={() => {
-                  changeHandler("Amin");
-                }}
-              >
-                <Image
-                  boxSize="2rem"
-                  borderRadius="full"
-                  src="/assets/defaultPicture.webp"
-                  alt="Fluffybuns the destroyer"
-                  mr="12px"
-                />
-                <Text>Amin</Text>
-              </MenuItem>
+        <Menu>
+          <MenuButton as={Button} colorScheme="purple" ml="10px" width="170px">
+            Enroll Class
+          </MenuButton>
 
-              <MenuItem
-                minH="40px"
-                onClick={() => {
-                  changeHandler("Azizul");
-                }}
-              >
-                <Image
-                  boxSize="2rem"
-                  borderRadius="full"
-                  src="/assets/defaultPicture.webp"
-                  alt="Simon the pensive"
-                  mr="12px"
-                />
-                <Text>Azizul</Text>
-              </MenuItem>
+          <MenuList>
+            <MenuItem
+              minH="48px"
+              onClick={() => {
+                changeHandler("Amin");
+              }}
+            >
+              <Image
+                boxSize="2rem"
+                borderRadius="full"
+                src="/assets/defaultPicture.webp"
+                alt="Fluffybuns the destroyer"
+                mr="12px"
+              />
+              <Text>Amin</Text>
+            </MenuItem>
 
-              <MenuItem
-                minH="40px"
-                onClick={() => {
-                  changeHandler("Matmen");
-                }}
-              >
-                <Image
-                  boxSize="2rem"
-                  borderRadius="full"
-                  src="/assets/defaultPicture.webp"
-                  alt="Simon the pensive"
-                  mr="12px"
-                />
-                <Text>Matmen</Text>
-              </MenuItem>
-            </MenuList>
-          </Menu>
-        </Flex>
-      </Flex>
+            <MenuItem
+              minH="40px"
+              onClick={() => {
+                changeHandler("Azizul");
+              }}
+            >
+              <Image
+                boxSize="2rem"
+                borderRadius="full"
+                src="/assets/defaultPicture.webp"
+                alt="Simon the pensive"
+                mr="12px"
+              />
+              <Text>Azizul</Text>
+            </MenuItem>
+
+            <MenuItem
+              minH="40px"
+              onClick={() => {
+                changeHandler("Matmen");
+              }}
+            >
+              <Image
+                boxSize="2rem"
+                borderRadius="full"
+                src="/assets/defaultPicture.webp"
+                alt="Simon the pensive"
+                mr="12px"
+              />
+              <Text>Matmen</Text>
+            </MenuItem>
+          </MenuList>
+        </Menu>
+      </Grid>
 
       <Modal blockScrollOnMount={false} isOpen={isOpenModalEnroll} onClose={onCloseModalEnroll}>
         <ModalOverlay />
@@ -156,14 +130,7 @@ const TutorProfile2 = ({
           <ModalBody>
             <>
               <Flex justifyContent="center" alignItems="center" gap="60px">
-                <Avatar
-                  src={
-                    tutorImage
-                      ? `https://backend.dev.leonclassroom.com/assets/${tutorImage}`
-                      : "/assets/defaultPicture.webp"
-                  }
-                  size="xl"
-                />
+                <Avatar src={profilePicture} size="xl" />
 
                 <Flex gap="8px">
                   <Box fontWeight="bold">
@@ -223,27 +190,18 @@ const TutorProfile2 = ({
                   alignItems="center"
                   sx={{ backgroundColor: "#ffffff" }}
                 >
-                  <Image
-                    src={
-                      tutorImage
-                        ? `https://backend.dev.leonclassroom.com/assets/${tutorImage}`
-                        : "/assets/defaultPicture.webp"
-                    }
-                    boxSize="230px"
-                    objectFit="cover"
-                    borderRadius="20px"
-                  />
+                  <Image src={profilePicture} boxSize="230px" objectFit="cover" borderRadius="20px" />
                   <Text mt="15px" fontWeight="bold">
                     My Profile
                   </Text>
                   <Box wordBreak="break-word" maxW="300px" mt="3px">
                     <Flex gap="4px">
                       <Text>Name:</Text>
-                      <Text>{`${tutorFirstName} ${tutorLastName}`}</Text>
+                      <Text>Ahmad maslan</Text>
                     </Flex>
                     <Flex gap="4px">
                       <Text>Rating:</Text>
-                      <Text>5 Star ⭐</Text>
+                      <Text>⭐⭐⭐⭐</Text>
                     </Flex>
                     <Flex gap="4px">
                       <Text>Age:</Text>
@@ -251,7 +209,7 @@ const TutorProfile2 = ({
                     </Flex>
                     <Flex gap="4px">
                       <Text>Location:</Text>
-                      <Text>{tutorLocation}</Text>
+                      <Text>London</Text>
                     </Flex>
                     <Text>University: {university}</Text>
                     <Text>Excellent attitude</Text>
@@ -282,7 +240,11 @@ const TutorProfile2 = ({
                     sx={{ backgroundColor: "#ffffff" }}
                   >
                     <Text fontWeight="bold">About Me</Text>
-                    <Text mt="6px">{tutorDescription}</Text>
+                    <Text mt="6px">
+                      Hello I am school teacher. For my education background I start my journey at british school in
+                      London.Elit labore in sit esse do in consectetur fugiat consectetur elit non veniam. Cupidatat
+                      mollit tempor qui
+                    </Text>
                   </Box>
                 </Flex>
               </Flex>
@@ -295,4 +257,4 @@ const TutorProfile2 = ({
   );
 };
 
-export default TutorProfile2;
+export default TutorProfileHorizontal;
