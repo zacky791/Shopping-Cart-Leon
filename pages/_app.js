@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }) {
   const theme = extendTheme({
     styles: {
       global: {
-        body: { fontFamily: "Quicksand" },
+        body: { fontFamily: "Poppins" },
         h1: {
           fontFamily: "Poppins !important",
         },

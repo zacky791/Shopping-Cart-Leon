@@ -21,7 +21,7 @@ const Description = () => {
         display="flex"
         bg="white"
         boxShadow="xl"
-        gap="100px"
+        gap="80px"
       >
         <Box w="380px">
           <Heading as="h1" fontSize="20px" mb="10p  x">
@@ -58,6 +58,7 @@ const Description = () => {
             </Text>
           </Box>
         </Box>
+
         <Box>
           <Heading as="H1" fontSize="20px" mb="10px">
             Class Description

@@ -1,5 +1,38 @@
- //to handle slash between month and year
-.replace(/(\d{2})(\d{0,2})/, "$1/$2");
+//debug
+{
+  /* <button
+onClick={() => {
+  console.log(tutorData);
+}}
+>
+data
+</button> */
+}
 
- // facade
- link: process.env.NEXT_PUBLIC_PAYPAL_URL || "www.",
+//  // to handle slash between month and year
+// .replace(/(\d{2})(\d{0,2})/, "$1/$2");
+
+//  // facade
+//  link: process.env.NEXT_PUBLIC_PAYPAL_URL || "www.",
+
+//  // to make cool background
+//  bg="linear-gradient(180deg, rgba(156, 39, 176, 0.2) 20%, #FFFFFF)"
+
+//    //for showing more courses
+//   const courses = ["6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"];
+//   const [visibleCourses, setVisibleCourses] = useState(courses.slice(0, 5));
+//   const [showMore, setShowMore] = useState(true);
+
+//   const handleShowMore = () => {
+//     setVisibleCourses(courses);
+//     setShowMore(false);
+//   };
+
+//   <Box alignItems="center">
+//   <Text>Courses: {visibleCourses.join(", ")}</Text>
+//   {showMore && (
+//     <Text onClick={handleShowMore} ml="2px" color="purple" cursor="pointer" textDecoration="underline">
+//       (See more)
+//     </Text>
+//   )}
+// </Box>

@@ -1,24 +1,35 @@
 import React, { useEffect, useState } from "react";
-import TutorProfileHorizontal from "../features/profile-tutor/TutorProfileHorizontal";
+import TutorProfile from "../features/profile-tutor/TutorProfile";
 import { Header, Footer } from "../component/ui";
-import { Box, Center, Flex, Grid } from "@chakra-ui/react";
-import data from "../data/data.json";
-import TutorProfile2 from "@/features/profile-tutor/TutorProfile2";
+import { Center, Grid, Text } from "@chakra-ui/react";
 
 const EnrollClass = () => {
   const axios = require("axios");
-
   const [tutorData, setTutorData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // const limitedTutorData = tutorData?.slice(0, 6);
-
   useEffect(() => {
     const fetchTutorData = async () => {
       try {
-        const response = await axios.get("https://backend.of.leonclassroom.com/users");
-        setTutorData(response.data);
+        //to get id class
+        const courseId = new URLSearchParams(window.location.search).get("course_id");
+
+        //to retrive detail based on id class
+        const activeClass = await axios.get(
+          `https://backend.of.leonclassroom.com/items/classes?filter={"course":${courseId}}`
+        );
+
+        //to get tutor id
+        const tutorId = activeClass.data.data.map((id) => id.tutor);
+
+        //to get all user
+        const allUser = await axios.get("https://backend.of.leonclassroom.com/users");
+
+        //to filter teacher based on class
+        const tutor = allUser.data.data.filter((t) => tutorId.includes(t.id));
+
+        setTutorData(tutor);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -29,36 +40,26 @@ const EnrollClass = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Text>Loading...</Text>;
   } else if (error) {
-    return <div>Error Fetching Data: {error.message}</div>;
+    return <Text>Error Fetching Data: {error.message}</Text>;
   }
   return (
     <>
       <Header />
-      <Center>
+      <Center minHeight="70vh">
         <Grid>
-          {data.tutorInformation.map((tutorProfile, index) => (
-            <TutorProfileHorizontal
-              key={index}
-              name={tutorProfile.name}
-              profilePicture={tutorProfile.profilePicture}
-              university={tutorProfile.university}
-              dayAvailable={tutorProfile.dayAvailable}
-              timeStart={tutorProfile.timeAvailable.start}
-              timeEnd={tutorProfile.timeAvailable.end}
+          {tutorData.map((tutor) => (
+            <TutorProfile
+              key={tutor.id}
+              firstName={tutor.first_name}
+              lastName={tutor.last_name}
+              profilePicture={tutor.avatar}
+              university={tutor.university}
+              dayAvailable={tutor.dayAvailable}
+              experience={tutor.experience}
             />
           ))}
-          {/* {tutorData.data.map((tutorData, index) => (
-            <TutorProfileHorizontal
-              key={index}
-              tutorImage={tutorData.avatar}
-              tutorFirstName={tutorData.first_name}
-              tutorLastName={tutorData.last_name}
-              tutorDescription={tutorData.description}
-              tutorLocation={tutorData.location}
-            />
-          ))} */}
         </Grid>
       </Center>
       <Footer />

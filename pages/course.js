@@ -1,48 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Header, Footer } from "../component/ui";
 import MainCourse from "../features/course/MainCourse";
+import useAxios from "@/util/useAxios";
+import { Text } from "@chakra-ui/react";
 
 export default function Course() {
-  const axios = require("axios");
-
-  const [courseData, setCourseData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchCourseData = async () => {
-      try {
-        const response = await axios.get("https://backend.of.leonclassroom.com/items/courses");
-        setCourseData(response.data);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-
-    fetchCourseData();
-  }, []);
+  const courseId = new URLSearchParams(window.location.search).get("course_id");
+  const { leonData, loading, error } = useAxios(
+    `https://backend.of.leonclassroom.com/items/courses?filter={"id":${courseId}}`
+  );
 
   if (loading) {
-    return <div>Loading...</div>; // Render a loading indicator while fetching data, to avoid premature ui and react update it by batch
+    return <Text>Loading...</Text>;
   } else if (error) {
-    return <div>Error fetching data: {error.message}</div>; // Render an error message if fetching data fails
+    return <Text>Error fetching data: {error.message}</Text>;
   }
 
   return (
     <>
       <Header />
-      {courseData.data.map((course, index) => {
+      {leonData.data.map((course) => {
         return (
-          <MainCourse
-            key={course.id}
-            index={index}
-            course={course}
-            courseTitle={course.title}
-            courseImage={course.featured_image}
-            courseDescription={course.description}
-          />
+          <>
+            <MainCourse
+              courseKey={course.id}
+              course={course}
+              courseTitle={course.title}
+              courseImage={course.featured_image}
+              courseTag={course.tags}
+              courseDescription={course.description}
+            />
+          </>
         );
       })}
       <Footer />
